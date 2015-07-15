@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 {
     int ofds[2];
     int ifds[2];
+    int j = 1;
     double bandwidth[11];
     double sum = 0;
     int size;
@@ -75,7 +76,7 @@ int main(int argc, char *argv[])
     
     if (!fork()) {  /* child */
 
-        for(int j=1;j<=10;j++)
+        for(j=1;j<=10;j++)
         {
             for (i = 0; i < count; i++) {
                 
@@ -92,7 +93,7 @@ int main(int argc, char *argv[])
         }
     } else { /* parent */
 
-        for (int j = 1; j <= 10 ; j++) {
+        for (j = 1; j <= 10 ; j++) {
             gettimeofday(&start, NULL);
             
             for (i = 0; i < count; i++) {

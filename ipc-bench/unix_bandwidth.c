@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     int sv[2]; /* the pair of socket descriptors */
     int size;
     char *buf;
-    int64_t count, i;
+    int64_t count, i , j;
     double delta;
     double bandwidth[11];
     double sum = 0;
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     }
     
     if (!fork()) {  /* child */
-        for( int j = 1 ; j <= 10 ;j++ )
+        for(j = 1 ; j <= 10 ;j++ )
         {
             for (i = 0; i < count; i++) {
                 
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
             }
         }
     } else { /* parent */
-        for(int j = 1;j <= 10 ; j++)
+        for(j = 1;j <= 10 ; j++)
         {
             
             gettimeofday(&start, NULL);

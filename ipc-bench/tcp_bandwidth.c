@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 {
   int size;
   char *buf;
-  int64_t count, i;
+  int64_t count, i , j;
   double delta;
   struct timeval start, stop;
   double bandwidth[11];
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
       exit(1);
     } 
 
-      for(int j = 1;j <= 10 ; j++ )
+      for(j = 1;j <= 10 ; j++ )
       {
           for (i = 0; i < count; i++) {
               
@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
       exit(1);
     }
 
-      for(int j = 1;j <= 10 ; j++)
+      for(j = 1;j <= 10 ; j++)
       {
           gettimeofday(&start, NULL);
           

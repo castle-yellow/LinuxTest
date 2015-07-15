@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     int fds[2]; /* the pair of socket descriptors */
     int size;
     char *buf;
-    int64_t count, i, delta,throughput_msg[11],throughput[11],sum_msg = 0 ,sum = 0;
+    int64_t count, i, delta,throughput_msg[11],throughput[11],sum_msg = 0 ,sum = 0 , j;
     struct timeval start, stop;
     
     if (argc != 3) {
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     if (!fork()) {
         /* child */
         
-        for(int j = 0; j <= 10; j++)
+        for( j = 0; j <= 10; j++)
         {
             for (i = 0; i < count; i++) {
                 if (read(fds[1], buf, size) != size) {
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     } else {
         /* parent */
         
-        for(int j = 1 ; j <= 10 ; j++)
+        for( j = 1 ; j <= 10 ; j++)
         {
             gettimeofday(&start, NULL);
             

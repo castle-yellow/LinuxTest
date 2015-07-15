@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 {
     int size;
     char *buf;
-    int64_t count, i, delta, throughput_msg[11],throughput[11] ,sum_msg = 0 , sum = 0;
+    int64_t count, i, delta, throughput_msg[11],throughput[11] ,sum_msg = 0 , sum = 0 , j;
     struct timeval start, stop;
     
     ssize_t len;
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
             exit(1);
         }
         
-        for (int j = 1 ; j <= 10 ; j++) {
+        for (j = 1 ; j <= 10 ; j++) {
             for (sofar = 0; sofar < (count * size);) {
                 len = read(new_fd, buf, size);
                 if (len == -1) {
@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
             perror("setsockopt");
             exit(1);
         }
-        for(int j = 0 ; j <= 10 ; j++)
+        for( j = 0 ; j <= 10 ; j++)
         {
             
             gettimeofday(&start, NULL);

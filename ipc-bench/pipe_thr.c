@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     
     int size;
     char *buf;
-    int64_t count, i, delta;
+    int64_t count, i, delta , j;
     int64_t throughput_msg[11];
     int64_t throughput[11];
     int64_t sum = 0 ;
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     if (!fork()) {
         /* child */
         
-        for(int j = 0 ; j <= 10 ; j++)
+        for(j = 0 ; j <= 10 ; j++)
         {
             for (i = 0; i < count; i++) {
                 if (read(fds[0], buf, size) != size) {
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     } else {
         /* parent */
         
-        for(int j = 1 ; j <= 10 ; j++ ) {
+        for(j = 1 ; j <= 10 ; j++ ) {
             gettimeofday(&start, NULL);
             
             for (i = 0; i < count; i++) {
