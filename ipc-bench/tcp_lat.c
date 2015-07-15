@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 {
     int size;
     char *buf;
-    int64_t count, i, delta,throught_msg[11]，throught[11],sum_msg = 0,sum = 0;
+    int64_t count, i, delta;
     struct timeval start, stop;
     float latency[11];
     float sum = 0;
@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
             
             delta = ((stop.tv_sec - start.tv_sec) * (int64_t) 1e6 +
                      stop.tv_usec - start.tv_usec);
-            latency[j] = delta / (double)(count * 2);
+            latency[j] = delta / (float)(count * 2);
             sum += latency[j];
             printf("The %d time latency: %f us\n", j , latency[j]);
             
