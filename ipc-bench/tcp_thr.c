@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
             perror("setsockopt");
             exit(1);
         }
-        for( j = 0 ; j <= 10 ; j++)
+        for( j = 1 ; j <= 10 ; j++)
         {
             
             gettimeofday(&start, NULL);
